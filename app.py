@@ -46,21 +46,23 @@ def predict(image_path):
 # Defining the app here
 app = Flask(__name__)
 
+
+# Routes defined here
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('index.html')
 
 @app.route('/predict', methods=['POST'])
 def predict_image():
     if 'image' not in request.files:
-        return render_template('index.html', prediction="No image selected")
+        return jsonify({'error': 'No file part'})
     
     file = request.files['file']
     
     # if user does not select file, browser also
     # submit an empty part without filename
     if file.filename == '':
-        return render_template('index.html', prediction="No image selected")
+        return jsonify({'error': 'No selected file'})
     
 
     if file and allowed_file(file.filename):
@@ -71,7 +73,9 @@ def predict_image():
         # Prediction goes here
         predicted_class = predict(file_path)
         
-        return render_template('index.html', prediction="{{predicted_class}}")
+        return jsonify({'predicted_class': predicted_class})
+    
+    return jsonify({'error': 'Invalid file format'})
 
 @app.route('/test')
 def test():
