@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Image Prediction UI</title>
+        
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+    
+    <body>
+        <h1>Upload and Predict an Image</h1>
+        <form method="POST" enctype="multipart/form-data" action="/predict">
+            <label for="image-upload">Select an image to upload:</label>
+            <input type="file" id="image-upload" name="image">
+            <input type="submit" value="Predict">
+        </form>
+    </body>
+</html>
