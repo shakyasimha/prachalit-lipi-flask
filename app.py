@@ -7,7 +7,7 @@ import cv2
 
 
 # Some constants to be used in the model
-UPLOAD_FOLDER = ''
+UPLOAD_FOLDER = 'static/uploads'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 IMG_SIZE = (32,32)
 
