@@ -8,11 +8,13 @@
     left: 1rem;
     transform: translateY(-50%);
 }
-
 .image-area {
     border: 2px dashed rgba(255, 255, 255, 0.7);
-    padding: 4rem;
+    padding: 1rem; /* change padding to make container smaller */
     position: relative;
+    max-width: 400px; /* add max-width to limit container width */
+    
+    margin: 0 auto; /* center the container horizontally */
 }
 
 .image-area::before {
@@ -28,15 +30,17 @@
     z-index: 1;
 }
 
-
 .image-area img {
     z-index: 2;
     position: relative;
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
 }
 
 
 body {
     min-height: 100vh;
     background-color: #757f9a;
-    background-image: linear-gradient(147deg, #9b5de5 0%, #f15bb5 100%);
+    background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e);
 }
