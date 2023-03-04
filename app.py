@@ -1,6 +1,6 @@
 from flask import Flask, Response, request, jsonify, redirect, url_for, render_template
 from werkzeug.utils import secure_filename  
-from tensorflow.keras.models import load_model
+from keras.models import load_model
 import numpy as np
 import os
 import cv2 
