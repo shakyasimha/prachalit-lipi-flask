@@ -16,6 +16,11 @@ Prediction - Prachalit Character Recognition
         <h1 class="display-5">Prediction</h1>
         {% if predictions %}
         <h2 class="display-4 text-green font-weight-bold">{{predictions}}</h2>
+        
+        <div class="container text-center py-3">
+            <button class="btn btn-primary" onclick="copyToClipboard('{{predictions}}')">Copy Prediction</button>
+        </div>
+        
         {% else %}
         <h2 class="display-4 text-green font-weight-bold">{{err}}</h2>
         {% endif %}

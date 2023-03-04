@@ -2,23 +2,35 @@
     opacity: 0;
 }
 
+h1 {
+    font-size: 72px;
+    background: -webkit-linear-gradient(#6ad5ff, #8400ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
 #upload-label {
     position: absolute;
     top: 50%;
     left: 1rem;
     transform: translateY(-50%);
 }
+
 .image-area {
-    border: 2px dashed rgba(255, 255, 255, 0.7);
-    padding: 1rem; /* change padding to make container smaller */
+    border: 2px dashed rgba(89, 110, 179, 0.7);
+    padding: 1rem;
+    /* change padding to make container smaller */
     position: relative;
-    max-width: 400px; /* add max-width to limit container width */
-    margin: 0 auto; /* center the container horizontally */
+    max-width: 400px;
+    /* add max-width to limit container width */
+    margin: 0 auto;
+    /* center the container horizontally */
 }
 
 .image-area::before {
     content: 'Image Preview';
-    color: #fff;
+    color: #ffffff;
     font-weight: bold;
     text-transform: uppercase;
     position: absolute;
