@@ -1,21 +1,53 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Flask TensorFlow Image Prediction</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-</head>
-<body>
-    <div class="container">
-        <h1>Flask TensorFlow Image Prediction</h1>
-        <form id="upload-form" action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
-            <input type="file" name="file" id="file-input" accept="image/*">
-            <button type="submit" class="btn">Predict</button>
-        </form>
-        <div id="result-container" class="hidden">
-            <h2>Result:</h2>
-            <p id="predicted-class"></p>
+{% extends "layout.html"%}
+{% block title %}
+Prachalit Lipi Character Recognition
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+
+    <header class="text-white text-center">
+        <h1 class="display-4">Prachalit Lipi Character Recognition</h1>
+        <p class="lead mb-5">A webapp to recognise prachalit lipi character. Just drop an image of character
+            and see the magic.</p>
+    </header>
+
+
+    <div class="row py-4">
+        <div class="col-lg-6 mx-auto">
+
+            <!-- Upload image input-->
+            <form action="{{ url_for('predict_image') }}" enctype="multipart/form-data" method="POST">
+                <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
+                    <input class="form-control border-0" id="upload" name="file" type="file">
+                    <label class="font-weight-light text-muted" for="upload" id="upload-label">Choose file</label>
+                    <div class="input-group-append">
+                        <label class="btn btn-light m-0 rounded-pill px-4" for="upload"> <i
+                                class="fa fa-cloud-upload mr-2 text-muted"></i><small
+                                class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
+                    </div>
+                </div>
+
+
+                <!-- Uploaded image area-->
+                <p class="font-italic text-white text-center">The image uploaded will be rendered inside the box
+                    below.</p>
+                <div class="image-area mt-4"><img alt="" class="img-fluid rounded shadow-sm mx-auto d-block"
+                                                  id="imageResult" name="imageResult"
+                                                  src="#"></div>
+
+                <!-- Submit button-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                            <input class="btn btn-primary my-3" type="submit"/>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
         </div>
     </div>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-</body>
-</html>
+</div>
+
+{% endblock %}

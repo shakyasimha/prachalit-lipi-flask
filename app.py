@@ -24,7 +24,7 @@ char_map = {
 }
 
 # Loading the model here
-model = load_model('vgg.h5')
+model = load_model('model_vgg.h5')
 
 # Function to check if the file extension is allowed
 def allowed_file(filename):
@@ -40,8 +40,9 @@ def predict(image_path):
 
     output = model.predict(image)
     result = char_map[np.argmax(output)]
-    
+    print(f'Predicted class: {result}')
     return result
+    
 
 # Defining the app here
 app = Flask(__name__)
@@ -52,11 +53,10 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict_image', methods=['POST'])
 def predict_image():
-    if 'image' not in request.files:
-        return jsonify({'error': 'No file part'})
-    
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file part'})    
     file = request.files['file']
     
     # if user does not select file, browser also
@@ -73,8 +73,8 @@ def predict_image():
         # Prediction goes here
         predicted_class = predict(file_path)
         
-        return jsonify({'predicted_class': predicted_class})
-    
+        #return jsonify({'predicted_class': predicted_class})
+        return render_template("result.html", predictions= predicted_class)
     return jsonify({'error': 'Invalid file format'})
 
 @app.route('/test')
