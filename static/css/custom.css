@@ -13,7 +13,6 @@
     padding: 1rem; /* change padding to make container smaller */
     position: relative;
     max-width: 400px; /* add max-width to limit container width */
-    
     margin: 0 auto; /* center the container horizontally */
 }
 
@@ -33,8 +32,8 @@
 .image-area img {
     z-index: 2;
     position: relative;
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
