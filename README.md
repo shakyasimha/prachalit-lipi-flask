@@ -2,6 +2,7 @@
 
 ## What is this web app about?
 Simply, it is a last resort for our final year major project, making sure the app runs any way possible
+For more info on the project, click [here](https://github.com/shakyasimha/prachalit-script-dataset).
 
 ## How to run it?
 After cloning the repository,  `cd` into the directory and run `python -m venv venv` to create a virtual environment. 
